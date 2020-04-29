@@ -3,14 +3,25 @@
 
 
 const path = require('path');
+console.log ("Our current path:", __dirname);
 
-// Here are oour HTML routing, the first will show the notes html when requested, the second will show index.html for anything else entered
+// Here are oour HTML routing, the first will show the notes html when requested, the second will show index.html for anything else
+// entered
+
 module.exports = (app) => {
     app.get('/notes', (req, res) => {
-      res.sendFile(path.join(__dirname, '../public/notes.html'));
+      console.log ("notes path:", path.join(__dirname,"../public/notes.html"));
+      res.sendFile(path.join(__dirname, "../public/notes.html"));
     });  
-    // If no matching route is found default to home
+
+    app.get('/index', (req, res) => {
+      console.log ("index path:", path.join(__dirname,"../public/index.html"));
+      res.sendFile(path.join(__dirname, "../public/index.html"));
+    });
+
+    // If no matching route is found default to index.html
     app.get('*', (req, res) => {
-      res.sendFile(path.join(__dirname, '../public/index.html'));
+      console.log ("No valid entry path defaulting to index.html");
+      res.sendFile(path.join(__dirname, "../public/index.html"));
     });
   };

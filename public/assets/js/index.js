@@ -8,7 +8,7 @@ var $noteList = $(".list-container .list-group");
 var activeNote = {};
 
 
-console.log("We are inside index.js");
+console.log ("Note title is: ", $noteTitle);
 
 // A function for getting all notes from the db
 var getNotes = function () {
@@ -20,6 +20,7 @@ var getNotes = function () {
 
 // A function for saving a note to the db
 var saveNote = function (note) {
+  console.log("We are inside saveNote index.js");
   return $.ajax({
     url: "/api/notes",
     data: note,
