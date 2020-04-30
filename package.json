@@ -1,22 +1,14 @@
 {
   "name": "note-taker",
   "version": "1.0.0",
-  "description": "Small note taker",
+  "description": "",
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/SaundersEddie/Note-Taker.git"
-  },
-  "author": "Eddie Saunders",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/SaundersEddie/Note-Taker/issues"
-  },
-  "homepage": "https://github.com/SaundersEddie/Note-Taker#readme",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.16.4"
   }
 }
