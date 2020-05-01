@@ -17,7 +17,6 @@ module.exports = (app) => {
     });
 
     app.post('/api/notes', (req, res) => {
-
         // EXS 1st May 2020 - Add our id in with the note body
         const myNote = req.body
         totalNotes = notes.length;
@@ -25,7 +24,6 @@ module.exports = (app) => {
         notes.push(myNote);
         writeJSONFile(notes);
         res.json(true);
-
     });
 
     app.delete('/api/notes/:id', (req, res) => {
