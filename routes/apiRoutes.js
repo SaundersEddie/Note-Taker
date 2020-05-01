@@ -17,21 +17,35 @@ module.exports = (app) => {
     });
 
     app.post('/api/notes', (req, res) => {
-        console.log("Req Body:", req.body);
+
+        // EXS 1st May 2020 - Add our id in with the note body
+        // We're going to need to do some checking here to ensure that we don't duplicate ID's
+        // That code is currently not implemented.
+
+        // console.log("Req Body:", req.body);
 
         const myNote = req.body
         totalNotes = notes.length;
-        myNote.id = notes.length+1;
-        console.log("Total Notes: ",totalNotes);
+        // EXS 1st Mqy 2020 - This is naughty code, as the +1 gives us potential for duplicate IDs
+        myNote.id = notes.length + 1;
+        
+        console.log("Total Notes: ", totalNotes);
         notes.push(myNote);
         res.json(true);
         console.log("Notes Length:", notes.length);
     });
 
     app.delete('/api/notes/:id', (req, res) => {
-        var testShit = req.params.id;
-        console.log("Test Shit:", testShit);
-        notes.splice (testShit-1,1);
-        res.json(notes);
+        // EXS 1st May 2020 - Get our id of the note to delete, if we only have 1 note left, then pop it.
+        var idToRemove = req.params.id;
+
+        if (notes.length <= 1) {
+            console.log("Only 1 note let to delete")
+            notes.pop();
+
+        } else {
+            notes.splice(idToRemove - 1, 1);
+        }
+        res.json(true);
     })
 }
