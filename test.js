@@ -1,1 +1,0 @@
-console.log ("Testing the JS code");

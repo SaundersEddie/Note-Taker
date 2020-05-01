@@ -50,6 +50,8 @@ var renderActiveNote = function() {
 };
 
 // Get the note data from the inputs, save it to the db and update the view
+// EXS 1st May 2020 - 
+// Somewhere here we need to add in the total notes and add in the new id
 var handleNoteSave = function() {
   var newNote = {
     title: $noteTitle.val(),
@@ -70,7 +72,10 @@ var handleNoteDelete = function(event) {
   var note = $(this)
     .parent(".list-group-item")
     .data();
-
+  
+  // EXS 1st May 2020 - This is our hint for the id aspect of the note, adding this into the db.json
+  // shows up the id number when clicking the delete button
+  console.log (note.id);
   if (activeNote.id === note.id) {
     activeNote = {};
   }
